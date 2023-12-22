@@ -35,7 +35,7 @@ header {
   cursor: pointer;
   flex-basis: 5%;
 }
-nav {
+.nav_bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,25 +47,23 @@ nav {
 }
 .container .header .nav_list {
   list-style-type: none;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 50px;
+  margin-left: 30px;
+}
+.container .header .nav_list .lists {
+  float: left;
+  position: relative;
+  padding: 5px 20px;
 }
 .container .header .nav_list .lists a {
-  display: inline-block;
+  display: block;
   color: var(--Medium_Gray);
   text-decoration: none;
   font-weight: 500;
-  padding: 5px;
+  padding: 10px;
   transition: 0.3 ease-in-out;
 }
 .container .header .nav_list .lists a:hover {
   color: var(--Almost_Black);
-}
-.container .header .nav_list .lists {
-  position: relative;
-  padding: 0 30px;
-  transition: all 0.3s;
 }
 .arrow_up {
   display: none;
@@ -76,31 +74,29 @@ nav {
 .container .header .nav_list .lists:hover .arrow_down {
   display: none;
 }
-.sub_menu {
-  display: none;
-}
-.container .header .nav_list .lists:hover .sub_menu {
-  display: block;
+.container .header .nav_list .lists ul {
   position: absolute;
+  display: initial;
   background-color: #fff;
   border-radius: 15px;
-  top: 100%;
-  padding: 5px 10px;
-}
-.container .header .nav_list .lists:hover .sub_menu ul {
+  width: 150px;
+  left: 0;
+  padding: 5px;
   list-style-type: none;
-  display: block;
-  margin: 10px;
+  display: none;
 }
-.container .header .nav_list .lists:hover .sub_menu li a {
+.container .header .nav_list .lists ul li {
+  width: 100%;
+}
+.container .header .nav_list .lists ul li a {
   font-size: 16px;
   color: var(--Medium_Gray);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
-.container .header .nav_list .lists:hover .sub_menu li a:hover {
+.container .header .nav_list .lists ul li a:hover {
   color: var(--Almost_Black);
+}
+.container .header .nav_list .lists:hover > ul {
+  display: block;
 }
 .container .header .user {
   display: flex;
@@ -191,17 +187,18 @@ nav {
     position: relative;
     padding: 2rem 7%;
   }
-  .container .header nav {
+  .container .header .nav_bar {
     position: absolute;
     top: 0;
     right: 0%;
-    display: block;
+    flex-direction: column;
     width: 250px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #fff;
     padding: 2rem 1rem;
     z-index: 5;
     transition: all 0.3s ease-in-out;
+    display: none;
   }
   .close_btn {
     display: block;
@@ -209,22 +206,17 @@ nav {
   }
   .container .header .nav_list {
     margin: 2rem 0;
-    flex-direction: column;
-    height: auto;
+    width: 100%;
   }
   .container .header .nav_list .lists {
-    padding: 10px 15px;
+    width: 100%;
   }
-  .container .header .nav_list .lists:hover .sub_menu {
-    top: 15px;
-    background-color: transparent;
-    left: 0;
-  }
-  .container .header .nav_list .lists a {
-    display: block;
-    transition: all 0.3s;
+  .container .header .nav_list .lists ul {
+    position: relative;
+    width: 100%;
   }
   .container .header .user {
+    width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
